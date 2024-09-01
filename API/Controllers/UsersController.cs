@@ -10,6 +10,7 @@ namespace API.Controllers;
 public class UsersController(DataContext dataContext) : BaseApiController
 {
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
         var users = await dataContext.Users.ToListAsync();
